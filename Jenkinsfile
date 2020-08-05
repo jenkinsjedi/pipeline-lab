@@ -5,12 +5,12 @@ pipeline {
       parallel {
         stage('First Stage') {
           steps {
-            echo 'First Stage'
+            sh 'echo First Stage'
           }
         }
         stage('Parallel Stage') {
           steps {
-            echo 'Parallel Stage'
+            sleep 5
           }
         }
       }
@@ -22,7 +22,7 @@ pipeline {
     }
     stage('Finish Stage') {
       steps {
-        echo 'Finish Stage'
+        sh 'ls '
       }
     }
   }

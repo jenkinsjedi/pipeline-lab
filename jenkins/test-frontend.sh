@@ -1,13 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-echo Testing Frontend...
-# yarn install
-# node_modules/.bin/gulp test
+sleep 15
+echo "npm test"
 
-# simluate frontend tests running and producing a result
-sleep 5
-
-mkdir -p ./target/test-results
-cp ./jenkins/data/TEST* ./target/test-results/
-echo Frontend Testing completed. 
-exit 0
+echo "SUCCESS All Test Frontend"

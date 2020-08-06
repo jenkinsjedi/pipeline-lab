@@ -44,10 +44,5 @@ pipeline {
         sh './jenkins/deploy.sh '
       }
     }
-    stage('Clean Workspace') {
-      steps {
-        cleanWs(cleanWhenSuccess: true)
-      }
-    }
   }
 }

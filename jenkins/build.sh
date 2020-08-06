@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-git clean -xfd
-env
 mvn -B -DskipTests clean package

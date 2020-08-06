@@ -4,7 +4,7 @@ pipeline {
     stage('Build Stage') {
       steps {
         sh './jenkins/build.sh'
-        archiveArtifacts(artifacts: 'my-app-1.0-SNAPSHOT.jar', allowEmptyArchive: true)
+        archiveArtifacts(artifacts: 'target/my-app-1.0-SNAPSHOT.jar', allowEmptyArchive: true)
       }
     }
     stage('Test Backend Stage') {

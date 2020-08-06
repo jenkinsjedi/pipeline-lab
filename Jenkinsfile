@@ -1,28 +1,19 @@
 pipeline {
   agent any
   stages {
-    stage('First Stage') {
-      parallel {
-        stage('First Stage') {
-          steps {
-            sh 'echo First Stage'
-          }
-        }
-        stage('Parallel Stage') {
-          steps {
-            sleep 5
-          }
-        }
+    stage('Build Stage') {
+      steps {
+        sh './jenkins/build.sh'
       }
     }
-    stage('Second Stage') {
+    stage('Test Stage') {
       steps {
-        echo 'Second Stage'
+        sh './jenkins/test-all.sh'
       }
     }
-    stage('Finish Stage') {
+    stage('Deploy Stage') {
       steps {
-        sh 'ls '
+        sh './jenkins/deploy.sh '
       }
     }
   }

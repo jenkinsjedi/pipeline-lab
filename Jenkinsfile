@@ -1,8 +1,13 @@
 pipeline {
-  agent none
+  agent any
   stages {
     stage('Build Stage') {
-      agent any
+      agent {
+        node {
+          label 'centos'
+        }
+
+      }
       steps {
         sh './jenkins/build.sh'
         archiveArtifacts(artifacts: 'target/my-app-1.0-SNAPSHOT.jar', allowEmptyArchive: true)
@@ -27,6 +32,7 @@ pipeline {
           }
         }
         stage('Performance Test Stage') {
+          agent any
           steps {
             sh './jenkins/test-performance.sh'
           }

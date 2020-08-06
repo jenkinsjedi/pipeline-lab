@@ -1,7 +1,8 @@
 pipeline {
-  agent any
+  agent none
   stages {
     stage('Build Stage') {
+      agent any
       steps {
         sh './jenkins/build.sh'
         archiveArtifacts(artifacts: 'target/my-app-1.0-SNAPSHOT.jar', allowEmptyArchive: true)
@@ -10,6 +11,12 @@ pipeline {
     stage('Test Backend Stage') {
       parallel {
         stage('Tests Stage') {
+          agent {
+            node {
+              label 'centos'
+            }
+
+          }
           steps {
             dir(path: 'jenkins/') {
               sh './test-static.sh'
